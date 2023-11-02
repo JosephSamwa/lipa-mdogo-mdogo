@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project 1</title>
+    </head>
+    <body>
+       <div class="container">
+         <h1>Loan Calculator</h1>
+         <form>
+           <label for="amount">Loan amount : $ </label> <br />
+           <input id="amount" name="amount" type="number" min="1" max="500000" value="" required /> <br />
+           <label for="interest">interest rate : %</label> <br />
+           <input id="interest" name="interset" type="number" min="0" max="100" value="" required /> <br />
+           <label for="month">Months to pay : </label> <br />
+           <input id="month" name="month" type="number" min="1" max="300" value="" required /> <br />          
+         </form>
+         <button id="btn"> Calc </button>
+         <div id="rslt">
+         
+         </div>
+       </div>
+       <script>
+           let amount = document.getElementById("amount"),
+               interset = document.getElementById("interest"),
+               month = document.getElementById("month"),
+               btn = document.getElementById("btn"),
+               result = document.getElementById("rslt");
+               
+btn.onclick = function calc() {
+    let x = (interset.value * amount.value) / 100;
+    let y = +x + +amount.value;
+    result.innerHTML = "Monthly Payment = Ksh" + (y / month.value).toFixed(2);
+    
+}
+          
+       </script>
+    </body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,600&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+}
+body {
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    background-color: #171616;
+}
+
+.container {
+    padding: 30px 15px;
+    width: 410px;
+    background-color: black;
+    color: #FFFEFE;
+    text-align: center;
+}
+.container h1 {
+    margin-bottom: 15px;
+}
+.container form label {
+    display: inline-block;
+    margin: 10px 0;
+}
+.container form input {
+    margin-bottom: 15px;
+    padding: 8px 10px;
+    border-style: none;
+    outline: none;
+    width: 250px;
+}
+.container button {
+    padding: 8px 30px;
+    background-color: #0CB082;
+    border-style: none;
+    border-radius: 8px;
+    color: #ffffff;
+    margin-top: 17px;
+}
+.container #rslt {
+    padding: 15px 25px;
+    color: #fff;
+    font-weight: bold;
+}
+    </style>
+</html>

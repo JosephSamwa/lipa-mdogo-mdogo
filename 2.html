@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html id="dm">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
+        <title>self_unlocking_services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body style="background-color:yellow;"id="demo">
+ <b><marquee style="text-align:center;"> SELF_UNLOCKING_SERVICES.COM  &nbsp;&nbsp; &nbsp;&nbsp;   SELF_UNLOCKING_SERVICES.COM</marquee></b>
+   <p style="text-align:center;">
+       Welcome dear user...
+   </p>
+ <marquee> WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</marquee>
+
+  <p>Unfortunately this service is currently only available for the SUNKING and M-KOPA  DEVICES. <br /> WE ARE WORKING ROUND THE CLOCK TO ENSURE ALL THE OTHER COMPANIES ARE COVERED </p>
+    <br /><br />
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<div> <label>  KINDLY CHOOSE YOUR COMPANY:<mark><span id="dem"></span></mark> <br /><br />
+<div style="text-align:center;">
+   <select id="dvce">
+      <option value=""> Choose company</option>
+      <option value="M-KOPA">M-KOPA</option>
+      <option value="SUNKING">SUNKING</option>
+    </select>
+  </label>
+  <br /> <br />
+<button type="submit" value="SUBMIT" id="btn" onclick="myfunc()">SUBMIT </button>
+</div>
+  <script type="text/javascript">
+    const select = document.getElementById("dvce");
+    
+    select.addEventListener("change", function() {
+      const val = document.getElementById("dvce").value;
+      document.getElementById("dem").innerHTML = val;
+    });
+  </script>
+    </body><br />
+    <video id="myVideo"  style="display: none;width:500px;height:500px;">
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <button id="playButton"><mark>CLICK HERE TO WATCH A GUIDE ON HOW TO UNLOCK THE DEVICE</mark></button>
+
+    <script>
+        document.getElementById("playButton").addEventListener("click", function() {
+            var video = document.getElementById("myVideo");
+            video.style.display = "block";
+            video.play();
+        });
+    </script>
+  <script type="text/javascript" charset="utf-8">
+  const buton = document.getElementById("btn");
+  function myfunc()
+      {
+          const dev = document.getElementById("dvce");
+          const lod =document.getElementById("dvce").value;
+      
+      if (lod=="SUNKING")
+      {
+          window.location.href="3.html";
+      }
+      else if(lod=="M-KOPA")
+      {
+         window.location.href="4.html";
+      }
+      else
+      {
+          alert("Invalid");
+      }
+      }
+  </script>
+</html>

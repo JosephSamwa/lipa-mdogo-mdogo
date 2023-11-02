@@ -1,0 +1,347 @@
+<!-- Created by Josué Charles -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h3>Loan Calculator<small>v. 1.0</small> <a id="lang" href="https://code.sololearn.com/W2I1vzB8chDD/?ref=app">Aller à la version française</a></h3>
+    
+    
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="principal">Principal :</label>
+          <input type="number" class="form-control" id="principal" value="100000" required>
+        
+                        
+          <label for="Rate">Annual Rate(%):</label>
+          <input type="number" class="form-control" id="rate" value="9.0" required>
+       
+          <label for="sellist">Select the method of payment :</label>
+          <select class="form-control" id="sellist" required>
+            <option>1.Monthly(each month)</option>
+            <option>2.Bimonthly (all 2 months)</option>
+            <option>3.Quarterly (all 3 months)</option>
+            <option>4.Four months</option>
+             <option>5.Half-yearly(all 6 months)</option>
+            <option>6.Annual</option>
+          </select>
+      
+          <label for="time" id="period">Number of monthly payments :</label>
+          <input type="number" class="form-control" id="time" value="12" required>
+        
+       
+       
+          <label for="date">First deadline :</label>
+          <input  type="date" class="form-control" id="deadline1" value="2020-01-22"/>
+         
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-lg" id="calcul">Calculate</button></br>
+        
+       
+          <label for="payment" id="mp">Monthly payment:</label>
+          <input type="text" class="form-control" id="payment" value="8 745.15" disabled>
+          <p>
+              <ul>
+                  <li id="interest">
+                      
+                  </li>
+                  <li id="totPay">
+                      
+                  </li>
+                  <li id="pod">
+                      
+                  </li>
+              </ul>
+          </p>
+        </div>
+      </form>
+      
+        <div class="container table-responsive">
+        
+        
+        <table class="table table-bordered">
+       
+        <thead>
+         <caption>Table of Paying off</caption>
+          <tr>
+            <th>#</th>
+            <th>Deadline</th>
+            <th>Init Balance</th>
+            <th>Payed principal</th>
+            <th>Interest</th>
+            <th>Final Balance</th>
+          </tr>
+        </thead>
+        <tbody id="tbod">
+          
+        </tbody>
+        </table>
+      </div>
+    </div> 
+     
+</body>
+<script>
+    // Created by Josué Charles 
+
+
+$(function (){
+
+    var $principal=$("#principal"),
+        $rate=$("#rate"),
+        $sellist=$("#sellist"),
+        $time=$("#time"),
+        $calcul=$("#calcul"),
+        $deadline1=$("#deadline1"),
+        $payment=$("#payment"),
+        $period =$("#period"),
+        $mp =$("#mp");
+        
+     $(".form-control").change(function() {
+        var p=parseFloat($principal.val()),
+            r=parseFloat($rate.val()),
+            t=parseInt($time.val());
+            
+        if(isNaN(p) || p<0){
+            $principal.focus();
+        }
+        if(isNaN(r)){
+            $rate.focus();
+        }
+        if(isNaN(t) || t<0){
+            $time.focus();
+        }
+        if(!isNaN(p) && p>=0 && !isNaN(r) && !isNaN(t) && t>0){
+           var a=annuites(p, r, $sellist.val()  ,t);
+   $payment.val(format(roundOff(a,2)));
+       
+            var totInt=t*a-p;
+            var totPay=a*t;
+            var intP=totInt*100/totPay;
+            var payP=p*100/totPay;
+        
+            $("#interest").html("Total interest : "+format(roundOff(totInt,2))+"("+roundOff(intP,2)+"%)");
+         $("#totPay").html("Total Payments : "+format(roundOff(totPay,2))+"("+roundOff(payP,2)+"%)");
+       
+         tabAmort(p, a, r, $sellist.val(), t, $deadline1.val());
+         }
+         
+    });
+    
+    $("input").addClass("ftz");
+     
+     
+   $sellist.change(function (){
+       var mod=[,"Monthly", "Bimonthly", "Quarterly", "Four months", "Half-yearly", "Annual"];
+       var m=parseInt($sellist.val());
+       $period.html("Number of "+ mod[m]+"  payments");  
+            $mp.html(mod[m]+" payment");
+       
+     //$time.focus();
+   });
+  
+   
+  alert("Loan Calculator is an important tool for the institutions of credit. This version  allows to calculate the periodic constant payment of a loan with degressive interest for three given parameters: amount of the principal, annual rate and the method of the payment. It calculates also the deadlines and gives the amortization table. ");
+});
+
+
+
+function tabAmort(capital, ann, ti, mr, time,d){
+    var soldeIn, soldeFin, x, inter, capP, $tbod=$("#tbod"), rows=[], cols=[], dats, ms=["Jan", "Feb", "Mar","Apr" , "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    ti=periodicRate(ti);
+    dats=listDat(d, time);
+    
+    for(var i=0; i<time; i++){
+        inter=capital*ti;
+        capP=ann-inter;
+        soldeIn=capital;
+        capital-=capP;
+        if(capital <1) capital =0;
+        soldeFin=capital;
+        rows[i]=$("<tr>");
+        for(var j=0; j<6; j++){
+            cols[j]=$("<td>");
+            switch (j){
+                case 0:cols[j].text(i+1);
+                break ;
+                case 1:cols[j].text((dats[i].getDate())+" "+ms[dats[i].getMonth()]+" "+(dats[i].getYear()+1900));
+                break ;
+                case 2:cols[j].text(format(roundOff(soldeIn,2)));
+                break ;
+                case 3: cols[j].text(format(roundOff(capP,2)));
+                break ;
+                case 4: cols[j].text(format(roundOff(inter,2)));
+                break ;
+                default: cols[j].text(format(roundOff(soldeFin,2)));
+                
+            }
+        }
+        rows[i].html(cols);
+        
+    }
+    
+    $("#pod").text("Last deadline: "+dats[time-1].getDate()+" "+ms[dats[time-1].getMonth()]+" "+(dats[time-1].getYear()+1900));
+    
+    $tbod.html(rows);
+    
+}
+
+
+function listDat(d, time){
+    var t, l, dates=[];
+    var x=modalite().step;
+    d=new Date(d);
+    d.setDate ((d.getDate ()+1))
+    l=d.getDate ()
+    dates.push (d);
+    
+    if(l>28)
+        d.setDate(1);
+        
+    for(var i=1; i<time; i++){
+        d=new Date((1900+d.getYear()), d.getMonth(), d.getDate());
+        t=d.getMonth()+x;
+        d.setMonth (t);
+        dates.push(d);
+    } 
+    
+     
+    
+    if(l>28 && l<=30){
+        for(var dat of dates){
+          
+            var y=dat.getYear(), t=dat.getMonth();
+            
+            if(t%12==1){
+                if(y%4){
+                    dat.setDate(28);
+                }
+                else{
+                    dat.setDate(29);
+                }
+            }
+            else{
+               dat.setDate(l); 
+            }      
+        }
+    }
+      else if (l==31){
+            for(var dat of dates){
+          
+                var y=dat.getYear(), t=dat.getMonth(), m30=[3,5,8,10];
+                if(t%12==1){
+                    if(y%4){
+                        dat.setDate(28);
+                    }
+                    else{
+                        dat.setDate(29);
+                    }
+                }
+                else if(m30.indexOf(t%12)!=-1){
+                   dat.setDate(30);
+                }
+                else{
+                  dat.setDate(l);   
+                }    
+            }
+        }
+  return dates;
+ }   
+
+
+function periodicRate(ti){
+    ti/=100;
+    return ti/modalite().fac;
+}
+function  modalite(){
+    let m=parseInt($("#sellist").val());
+    let det=(m<6)?parseInt(12/m):1;
+    
+    return {step:m, fac:det};
+
+}
+
+function annuites(capital, ti, mr, time){
+
+    if(ti==0) return capital/time;
+    
+    var num;
+    ti=periodicRate(ti);
+    
+    num=capital*ti;
+    var den=1-Math.pow(1+ti, -time);
+    
+    return num/den;
+}
+
+function format(nbr){
+    
+    var nb,i, k=1, l;
+    
+    nb=(parseInt(nbr)+"").substring (1);
+    
+    k=parseInt(nb.length/3);
+    l=1+(nb.length)%3;
+    nbr+="";
+    nb=nbr.substring (0, l);
+    for(i=0;i<k;i++){
+        
+        nb=nb+" "+nbr.substring(l, l+3);
+        l+=3;
+    }
+    nb+=nbr.substring(l, nbr.length);
+    
+   return nb;
+}
+
+function roundOff(floatNumber, digitNumber){
+ return parseInt(floatNumber*Math.pow(10,digitNumber)+0.5)/Math.pow(10,digitNumber);
+    
+}
+</script>
+<style>
+    /* Created by Josué Charles */
+
+body {
+    
+}
+
+
+h3{
+    text-align:center ;
+    font-size:12px;
+}
+
+
+#lang{
+    margin-left:15px;
+}
+
+.ftz, #sellist{
+    font-size:1.3em;
+    text-align:center;
+}
+ul{
+    list-style-type:none;
+}
+
+li, caption{
+    font-weight:bold;
+    
+}
+
+caption{
+    text-align:center ;
+    caption-side:top;
+    
+}
+</style>
+</html>

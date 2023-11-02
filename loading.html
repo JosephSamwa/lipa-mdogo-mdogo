@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
+        <title>self_unlocking_services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+    <h1>
+    
+    <span id="l">L</span>
+    <span id="o">O</span>
+    <span id="a">A</span>
+    <span id="d">D</span>
+    <span id="i">I</span>
+    <span id="n">N</span>
+    <span id="g">G</span>
+    <span id="dot">("")</span>
+    </h1>
+        <div id="loading1"> </div>
+        <div id="loading2"></div>
+        <div id="loading3"></div>
+    </body>
+    <style type="text/css">
+    body
+{
+    margin:0;
+    padding:0;
+    background-color:#fff;
+    text-align:center ;
+}
+h1
+{
+    font-family:Times New Roman;
+    font-weight:bold;
+    background-color:#eeefff;
+    color:#323232;
+}
+#l
+{
+    color:#610ce8;
+    text-shadow:2px 2px 2px #610ce8;
+}
+#o
+{
+    color:#9933cc;
+    text-shadow:2px 2px 2px #9933cc;
+}
+#a
+{
+    color:#008074;
+    text-shadow:2px 2px 2px #008074;
+}
+#d
+{
+    color:#610ce8;
+    text-shadow:2px 2px 2px #610ce8;
+}
+#i
+{
+    color:#9933cc;
+    text-shadow:2px 2px 2px #9933cc;
+}
+#n
+{
+    color:#008074;
+    text-shadow:2px 2px 2px #008074;
+}
+#g
+{
+    color:#610ce8;
+    text-shadow:2px 2px 2px #610ce8;
+}
+#dot
+{
+    animation:ani 1s linear infinite;
+}
+#loading1
+{
+    width:200px;
+    height:200px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-100px;
+    margin-top:-100px;
+    border:9px solid #fff;
+    border-radius:50%;
+    border-top-color:#610ce8;
+    border-bottom-color:#610ce8;
+    animation: animate 3s linear infinite;
+    filter:blur(1px);
+}
+#loading2{
+    width:150px;
+    height:150px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-75px;
+    margin-top:-75px;
+    border-radius:50%;
+    text-align:center;
+    border:8px solid #fff;
+    border-top-color:#9933cc;
+    border-bottom-color:#9933cc;
+    animation:animate 2s linear infinite ;
+    animation-delay:500ms;
+     filter:blur(1px);
+}
+#loading3{
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-50px;
+    margin-top:-50px;
+    border-radius:50%;
+    text-align:center;
+    border:7px solid #fff;
+    border-top-color:#008074;
+    border-bottom-color:#008074;
+    animation:animate 2s linear infinite ;
+    animation-delay:1s;
+     filter:blur(1px);
+}
+@keyframes animate
+{
+    0%
+    {
+        transform:rotate(0deg);
+    }
+    100%
+    {
+        transform:rotate(360deg);
+    }
+}
+@keyframes ani
+{
+    0%
+    {
+      font-size:15px;
+      color:#610ce8;
+    }
+    50%
+    {
+        font-size:12px;
+        color:#9933cc;
+    }
+    100%
+    {
+        font-size:15px;
+        color:#008074;
+    }
+}
+</style>
+</html>

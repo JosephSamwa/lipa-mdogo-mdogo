@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
+        <title>self_unlocking_services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body style="background-color:gold;"id="demo">
+ <b><marquee style="text-align:center;"> SELF_UNLOCKING_SERVICES.COM  &nbsp;&nbsp; &nbsp;&nbsp;   SELF_UNLOCKING_SERVICES.COM</marquee></b>
+   <p style="text-align:center;">
+       Welcome dear user...
+   </p>
+    <marquee> WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</marquee>
+
+  <form id="" action="" method="get" accept-charset="utf-8">
+      <h2 style="text-align:center;">Device brand</h2>
+ <div style="text-align:center;">    
+<select id="optn">
+<option>select your device brand</option>
+ <option>Samsung 01</option>
+ <option>Samsung A02</option>
+<option> Samsung  A03</option>
+ <option>Samsung A04</option>
+<option> Samsung A10</option>
+<option>Samsung A11</option>
+<option>Samsung A12</option>
+<option>Samsung A13</option>
+<option>Samsung A21</option>
+ <option>Samsung A22</option>
+<option> Samsung A23</option>
+<option>Nokia C1</option>
+<option>Nokia C10</option>
+ <option>Nokia C20</option>
+ <option>Nokia C21</option>
+<option>Nokia C12</option>
+ <option>Nokia C31</option>
+<option> Nokia C30</option>
+<option> Nokia 1.4</option>
+<option>Nokia 2.4</option>
+<option>Infinix </option>
+<option>Tecno pop pro/spark 8c</option>
+ </select>
+ </div><br /><br />
+ <div style="text-align:center;">
+      <label for="Amount paid">AMOUNT PAID</label><br />
+      <input type="number" name="" id="amnt" value="" required=""placeholder="total amount you have paid"/><br /><br />
+      <label for="TT">TOTAL TO BE PAID</label><br />
+      <input type="number" name="" id="tbpd" value="" required=""placeholder="TOTAL AMOUNT TO BE PAID"/><br /><br />
+      <label for="Percentage Paid">Percentage Paid:</label><span id="Pcnt"></span><br /><br />
+      <button id="bt">Check % paid</button><br /><br />
+     
+      </div>
+      
+       Go to your phone dialer and dial <b>*#06#</b> then take a screenshot of the IMEI NUMBER. <br /><br />
+      <p style="text-align:center;"> Upload the screenshot <input type="file" name="" id="fl"required=""/> </p>
+  </form> 
+  <br />
+  <div style="text-align:center;"><button id="bk">PROCEED</button></div>
+         <script>
+           let amount = document.getElementById("amnt"),
+               rem = document.getElementById("tbpd");
+               pcntg = document.getElementById("Pcnt");
+               button=document.getElementById("bt");
+               buton=document.getElementById("bk");
+               button.onclick=function calc() {
+    let x = (amount.value / rem.value) *100;
+    let y = x;
+    pcntg.innerHTML = (y).toFixed(2);
+    
+}
+buton.onclick=function go(){
+pcntgs=document.getElementById("Pcnt");
+if (pcntgs.value!=null||rem.value!=0)
+{
+    window.location.href="5.html";
+}
+else
+{
+    alert("fill in all the required fields");
+    
+}
+}
+       </script>
+</html>
