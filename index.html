@@ -1,44 +1,130 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
-        <title>self_unlocking_services</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body style="background-color:gold;"id="demo">
- <b><marquee style="text-align:center;"> SELF_UNLOCKING_SERVICES.COM  &nbsp;&nbsp; &nbsp;&nbsp;   SELF_UNLOCKING_SERVICES.COM</marquee></b>
-   <p style="text-align:center;">
-       Welcome dear user...
-   </p>
-   <strong>POLITE NOTICE:</strong>THIS SITE IS ILLEGAL. ENSURE YOU ARE USING INCOGNITO TAB TO VIEW AND USE THIS SITE.
-   
-   <p>TO WATCH A GUIDE ON HOW TO TURN ON INCOGNITO: <video id="myVideo"  style="display: none;width:500px;height:300px;">
-        <source src="INCOGNITO.mp4" type="video/mp4">
-    </video>
-
-    <button id="playButton"><mark>CLICK HERE</mark></button>
-
+<head>
+    <meta charset="utf-8">
+    <title>Self Unlocking Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #FFD700; /* Gold color */
+            font-family: Arial, sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        main {
+            flex: 1;
+            width: 90%;
+            max-width: 800px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .notice {
+            background-color: #f8f8f8;
+            border-left: 5px solid #ffa500; /* Orange color for highlight */
+            margin: 20px 0;
+            padding: 15px;
+            text-align: center;
+        }
+        .video-container {
+            display: none;
+            justify-content: center;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button-alert {
+            background-color: #f44336; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>SELF_UNLOCKING_SERVICES.COM</div>
+    </header>
+    <main>
+        <p>Welcome dear user...</p>
+        <div class="notice">
+            <strong>Polite Notice:</strong> Ensure you are using incognito tab to view and use this site.
+        </div>
+        <div class="video-container" id="videoContainer">
+            <video id="myVideo" width="500" height="300">
+                <source src="INCOGNITO.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button id="playButton" class="button">Click Here to Watch Guide</button>
+    </main>
+    <footer>
+        <div>Are you using incognito?</div>
+        <button id="yesButton" class="button">Yes</button>
+        <button id="noButton" class="button button-alert">No</button>
+    </footer>
     <script>
         document.getElementById("playButton").addEventListener("click", function() {
+            var videoContainer = document.getElementById("videoContainer");
             var video = document.getElementById("myVideo");
-            video.style.display = "block";
+            videoContainer.style.display = "flex";
             video.play();
+        });
+
+        document.getElementById("yesButton").addEventListener("click", function() {
+            window.location.href = '2.html';
+        });
+
+        document.getElementById("noButton").addEventListener("click", function() {
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Please use incognito mode to view this site.',
+                icon: 'info',
+                confirmButtonText: 'Ok'
+            });
+        });
+
+        Swal.fire({
+            title: 'Policy Agreement',
+            text: "DO NOT SHARE ANY INFORMATION FROM THIS SITE WITH PERSONS YOU DON'T TRUST!!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Agree'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Welcome!',
+                    'You can now use the site.',
+                    'success'
+                );
+            } else {
+                document.body.innerHTML = "SORRY. YOU HAVE TO AGREE WITH THE POLICY";
+            }
         });
     </script>
 </body>
-   <br /><br /><br />
-   <div style="text-align:center;">
-   ARE YOU USING INCOGNITO? <br /> <br />
-   <button onclick=window.location.href="2.html">YES</button>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
- <button onclick=alert("USE_INCOGNITO")>NO</button>
- </div>
-   <script type="text/javascript">
-    if (confirm("DO NOT SHARE ANY INFORMATION FROM THIS SITE WITH PERSONS YOU DON'T TURST!!")) {
-      alert("WELCOME");
-    } else {
-      document.getElementById("demo").innerHTML="SORRY. YOU HAVE TO AGREE WITH THE POLICY";
-    }
-  </script>
- 
-    </body>
 </html>
