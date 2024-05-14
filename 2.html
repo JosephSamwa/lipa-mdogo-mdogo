@@ -1,58 +1,116 @@
 <!DOCTYPE html>
-<html id="dm">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
-        <title>self_unlocking_services</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body style="background-color:yellow;"id="demo">
- <b><marquee style="text-align:center;"> SELF_UNLOCKING_SERVICES.COM  &nbsp;&nbsp; &nbsp;&nbsp;   SELF_UNLOCKING_SERVICES.COM</marquee></b>
-   <p style="text-align:center;">
-       Welcome dear user...
-   </p>
- <marquee> WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</marquee>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Unlocking Services</title>
+    <style>
+        body {
+            background-color: #fffbe7;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: #555;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <!-- Add SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+</head>
+<body>
+    <header>
+        <h1>SelfUnlockingServices.com</h1>
+    </header>
+    <div class="container">
+        <p>Welcome dear user...</p>
+        <p>WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</p>
+        <p>Unfortunately, this service is currently only available for the SUNKING and M-KOPA devices. We are working round the clock to ensure all other companies are covered.</p>
+        <label for="dvce">Kindly choose your company:</label>
+        <select id="dvce">
+            <option value="">Choose company</option>
+            <option value="M-KOPA">M-KOPA</option>
+            <option value="SUNKING">SUNKING</option>
+        </select>
+        <button type="button" class="button" id="btn" onclick="myfunc()">SUBMIT</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById("dvce").addEventListener("change", function() {
+            const val = this.value;
+            Swal.fire({
+                icon: 'info',
+                title: 'Company Selected',
+                text: 'You selected: ' + val,
+                timer: 1500,
+                showConfirmButton: false
+            });
+        });
 
-  <p>Unfortunately this service is currently only available for the SUNKING and M-KOPA  DEVICES. <br /> WE ARE WORKING ROUND THE CLOCK TO ENSURE ALL THE OTHER COMPANIES ARE COVERED </p>
-    <br /><br />
-  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<div> <label>  KINDLY CHOOSE YOUR COMPANY:<mark><span id="dem"></span></mark> <br /><br />
-<div style="text-align:center;">
-   <select id="dvce">
-      <option value=""> Choose company</option>
-      <option value="M-KOPA">M-KOPA</option>
-      <option value="SUNKING">SUNKING</option>
-    </select>
-  </label>
-  <br /> <br />
-<button type="submit" value="SUBMIT" id="btn" onclick="myfunc()">SUBMIT </button>
-</div>
-  <script type="text/javascript">
-    const select = document.getElementById("dvce");
+        function myfunc() {
+            const lod = document.getElementById("dvce").value;
+            if (lod === "SUNKING") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Redirecting to SUNKING services...',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+                setTimeout(() => {
+                    window.location.href = "3.html";
+                }, 2000);
+            } else if (lod === "M-KOPA") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Redirecting to M-KOPA services...',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+                setTimeout(() => {
+                    window.location.href = "4.html";
+                }, 2000);
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Selection',
+                    text: 'Please choose a valid company.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        }
+    </script>
+</body>
+    </html>
     
-    select.addEventListener("change", function() {
-      const val = document.getElementById("dvce").value;
-      document.getElementById("dem").innerHTML = val;
-    });
-  </script>
-    </body><br />
-  <script type="text/javascript" charset="utf-8">
-  const buton = document.getElementById("btn");
-  function myfunc()
-      {
-          const dev = document.getElementById("dvce");
-          const lod =document.getElementById("dvce").value;
-      
-      if (lod=="SUNKING")
-      {
-          window.location.href="3.html";
-      }
-      else if(lod=="M-KOPA")
-      {
-         window.location.href="4.html";
-      }
-      else
-      {
-          alert("Invalid");
-      }
-      }
-  </script>
-</html>
