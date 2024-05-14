@@ -1,29 +1,105 @@
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
-        <title>self_unlocking_services</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body style="background-color:gold;"id="demo">
- <b><marquee style="text-align:center;"> SELF_UNLOCKING_SERVICES.COM  &nbsp;&nbsp; &nbsp;&nbsp;   SELF_UNLOCKING_SERVICES.COM</marquee></b>
-   <p style="text-align:center;">
-       Welcome dear user...
-   </p>
-    <marquee> WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</marquee>
-  
-  <br /><br />
- <h1 style="text-align:center;">HELP CENTER</h1>
- &nbsp;&nbsp; &nbsp;&nbsp;<button>FACING CHALLENGES?</button><br />
-These might be the possible reasons:<br /><br />
- <button>1. YOU ARE NOT USING INCOGNITO TAB</button>
- <button>2.YOU DID NOT MAKE A PAYMENT</button>
-  <button>3. YOU ENTERED A WRONG MPESA CODE</button>
-   <button>4. YOU UPLOADED A WRONG SCREENSHOT OF THE IMEI  NO.</button> <br /><br /><br /><br />
-   &nbsp;&nbsp; &nbsp;&nbsp; <button>KINDLY CHECK ON THE ABOVE MENTIONED ISSUES AND RECTIFY WHERE NECESSARY..
-   TO UNLOCK YOUR DEVICE.</button>
- <br /><br />
- For any other problem kindly send your issues to <b> self.unlocking.services@gmail.com</b>
- <br />
-     <br /><br />
-    <button onclick=window.location.href="2.html" >CLICK HERE TO PROCEED AND UNLOCK YOUR DEVICE</button>
-  </html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Self Unlocking Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffd700; /* Gold background for luxury feel */
+            font-family: 'Roboto', sans-serif; /* Modern font */
+        }
+        .navbar-custom {
+            background-color: #333; /* Dark background for navbar */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav .nav-link {
+            color: #ffd700; /* Gold text for contrast */
+        }
+        .marquee-custom {
+            padding: 10px;
+            background-color: #fff3cd; /* Light gold background for marquee */
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .help-center {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn-custom {
+            background-color: #f0ad4e; /* Bootstrap warning color */
+            border: none;
+            margin: 5px;
+        }
+        .btn-custom:hover {
+            background-color: #ec971f; /* Darker on hover */
+        }
+        .footer-custom {
+            padding: 20px;
+            background-color: #333; /* Dark footer for contrast */
+            color: #ffd700; /* Gold text */
+            text-align: center;
+        }
+        .footer-custom a {
+            color: #ffd700; /* Gold links */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">Self Unlocking Services</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="marquee-custom">
+            <marquee><strong>WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</strong></marquee>
+        </div>
+        <div class="help-center">
+            <h1>HELP CENTER</h1>
+            <p>FACING CHALLENGES?</p>
+            <button class="btn btn-custom"><i class="fas fa-user-secret"></i> NOT USING INCOGNITO TAB</button>
+            <button class="btn btn-custom"><i class="fas fa-dollar-sign"></i> DID NOT MAKE A PAYMENT</button>
+            <button class="btn btn-custom"><i class="fas fa-key"></i> WRONG MPESA CODE</button>
+            <button class="btn btn-custom"><i class="fas fa-mobile-alt"></i> WRONG IMEI SCREENSHOT</button>
+            <p class="mt-4">KINDLY CHECK ON THE ABOVE MENTIONED ISSUES AND RECTIFY WHERE NECESSARY TO UNLOCK YOUR DEVICE.</p>
+        </div>
+        <div class="footer-custom">
+            For any other problem kindly send your issues to <strong><a href="mailto:self.unlocking.services@gmail.com">self.unlocking.services@gmail.com</a></strong>
+            <br />
+            <button class="btn btn-warning mt-3" onclick="window.location.href='2.html'"><i class="fas fa-unlock"></i> UNLOCK YOUR DEVICE</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
