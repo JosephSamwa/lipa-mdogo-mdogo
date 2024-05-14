@@ -1,32 +1,73 @@
+<!DOCTYPE html>
 <html id="dm">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
-        <title>self_unlocking_services</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Self Unlocking Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+        .guide {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .instructions {
+            font-size: 18px;
+            line-height: 2;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 20px auto;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <img src="guide.jpg" alt="Payment Guide" />
 
-<body style="text-align:center;"><img src="guide.jpg" width="200px" height="200" />
+    <p class="guide">PAYMENT GUIDE</p>
 
-    <p style="text-align:center;"><b>PAYMENT GUIDE </b></p>
+    <div class="instructions">
+        GO TO M-PESA <br />
+        ↓ <br />
+        LIPA NA M-PESA <br />
+        ↓ <br />
+        PAYBILL <br />
+        ↓ <br />
+        PAYBILL NUMBER : <span class="highlight">323458</span> <br />
+        ↓ <br />
+        ACCOUNT NUMBER : <span class="highlight">862379302</span> <br />
+        ↓ <br />
+        AMOUNT: <span class="highlight">500</span> <br />
+        ↓ <br />
+        ENTER M-PESA PIN <br />
+        ↓ <br />
+        SEND
+    </div>
 
-    GO TO M-PESA <br />
-    ↓ <br />
-    LIPA NA M-PESA <br />
-    ↓ <br />
-    PAYBILL <br />
-    ↓ <br />
-    PAYBILL NUMBER : <b>323458</b> <br />
-    ↓ <br />
-    ACCOUNT NUMBER : <b>862379302</b> <br />
-    ↓ <br />
-    AMOUNT::<b>500</b> <br />
-    ↓ <br />
-    ENTER M-PESA PIN <br />
-    ↓ <br />
-    SEND <br />
-    <br />
-    <button onclick=window.location.href="5a.html">OK</button>
-
+    <button onclick="window.location.href='5a.html'">OK</button>
 </body>
-
 </html>
