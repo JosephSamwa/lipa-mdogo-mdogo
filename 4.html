@@ -1,22 +1,53 @@
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" width="device-width" />
-        <title>self_unlocking_services</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body style="background-color:green;"id="demo">
- <b><marquee style="text-align:center;"> SELF_UNLOCKING_SERVICES.COM  &nbsp;&nbsp; &nbsp;&nbsp;   SELF_UNLOCKING_SERVICES.COM</marquee></b>
-   <p style="text-align:center;">
-       Welcome dear user...
-   </p>
-    <marquee> WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</marquee>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Self Unlocking Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h2, label, button {
+            margin: 10px 0;
+        }
+        select, input[type="number"], input[type="file"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .percentage {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>SELF_UNLOCKING_SERVICES.COM</h1>
+    <p>Welcome dear user...</p>
+    <p>WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</p>
 
-  <form id="" action="" method="get" accept-charset="utf-8">
-      <h2 style="text-align:center;">Device brand</h2>
- <div style="text-align:center;">    
-<select id="optn">
-<option>select your device brand</option>
- <option>Samsung 01</option>
+    <form id="paymentForm" action="" method="get">
+        <h2>Device brand</h2>
+        <select id="optn">
+            <option value="">Select your device brand</option>
+            <!-- Add other options here -->
+<option>Samsung 01</option>
  <option>Samsung A02</option>
 <option> Samsung  A03</option>
  <option>Samsung A04</option>
@@ -39,46 +70,36 @@
 <option>Nokia 2.4</option>
 <option>Infinix </option>
 <option>Tecno pop pro/spark 8c</option>
- </select>
- </div><br /><br />
- <div style="text-align:center;">
-      <label for="Amount paid">AMOUNT PAID</label><br />
-      <input type="number" name="" id="amnt" value="" required=""placeholder="total amount you have paid"/><br /><br />
-      <label for="TT">TOTAL TO BE PAID</label><br />
-      <input type="number" name="" id="tbpd" value="" required=""placeholder="TOTAL AMOUNT TO BE PAID"/><br /><br />
-      <label for="Percentage Paid">Percentage Paid:</label><span id="Pcnt"></span><br /><br />
-      <button id="bt">Check % paid</button><br /><br />
-     
-      </div>
-      
-       Go to your phone dialer and dial <b>*#06#</b> then take a screenshot of the IMEI NUMBER. <br /><br />
-      <p style="text-align:center;"> Upload the screenshot <input type="file" name="" id="fl"required=""/> </p>
-  </form> 
-  <br />
-  <div style="text-align:center;"><button id="bk">PROCEED</button></div>
-         <script>
-           let amount = document.getElementById("amnt"),
-               rem = document.getElementById("tbpd");
-               pcntg = document.getElementById("Pcnt");
-               button=document.getElementById("bt");
-               buton=document.getElementById("bk");
-               button.onclick=function calc() {
-    let x = (amount.value / rem.value) *100;
-    let y = x;
-    pcntg.innerHTML = (y).toFixed(2);
+        </select>
+        <input type="number" id="amnt" placeholder="Total amount you have paid" required>
+        <input type="number" id="tbpd" placeholder="Total amount to be paid" required>
+        <label>Percentage Paid: <span class="percentage" id="Pcnt">0%</span></label>
+        <button type="button" id="bt">Check % paid</button>
+        <p>Go to your phone dialer and dial <b>*#06#</b> then take a screenshot of the IMEI NUMBER.</p>
+        <input type="file" id="fl" required>
+        <button type="button" id="bk">PROCEED</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        document.getElementById('bt').addEventListener('click', function() {
+            var amount = document.getElementById('amnt').value;
+            var total = document.getElementById('tbpd').value;
+            var percentage = (amount / total) * 100;
+            document.getElementById('Pcnt').textContent = percentage.toFixed(2) + '%';
+        });
+
+        document.getElementById('bk').addEventListener('click', function() {
+            var percentageSpan = document.getElementById('Pcnt');
+            var total = document.getElementById('tbpd').value;
+            if (percentageSpan.textContent !== '0%' && total !== '0') {
+               
+                window.location.href="5.1.html";
+            } else {
+                swal('Error', 'Please fill in all the required fields and check the percentage paid before proceeding.', 'error');
+            }
+        });
+    </script>
+</body>
+    </html>
     
-}
-buton.onclick=function go(){
-pcntgs=document.getElementById("Pcnt");
-if (pcntgs.value!=null||rem.value!=0)
-{
-    window.location.href="5.1.html";
-}
-else
-{
-    alert("fill in all the required fields");
-    
-}
-}
-       </script>
-</html>
