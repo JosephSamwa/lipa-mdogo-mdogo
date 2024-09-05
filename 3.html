@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Self Unlocking Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <style>
         body {
@@ -28,6 +29,7 @@
             color: white;
             border: none;
             cursor: pointer;
+            border-radius: 10px;
         }
         button:hover {
             background-color: #45a049;
@@ -35,17 +37,23 @@
         .percentage {
             font-weight: bold;
         }
+        input, select{
+            padding: 10px;
+            border-radius: 10px;
+        }
+        fieldset{
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>SELF_UNLOCKING_SERVICES.COM</h1>
-    <p>Welcome dear user...</p>
+    <h1>ByPass All locks today!</h1>
     <p>WELCOME TO THE PAYMENT FREE WORLD! NO MORE STRESS ON LIPA MDOGO MDOGO</p>
 
     <form id="paymentForm" action="" method="get">
         <h2>Device brand</h2>
-        <select id="optn" required>
-            <option value="">Select your device brand</option>
+        <select id="optn" name="option" required>
+<option value="">Select your device brand</option>
 <option value="Samsung 01">Samsung 01</option>
 <option value="Samsung A02">Samsung A02</option>
 <option value="Samsung A03">Samsung A03</option>
@@ -69,17 +77,28 @@
 <option value="Infinix">Infinix</option>
 <option value="Tecno pop pro/spark 8c">Tecno pop pro/spark 8c</option>
         </select>
-        <input type="number" id="amnt" placeholder="Total amount you have paid" required>
-        <input type="number" id="tbpd" placeholder="Total amount to be paid" required>
+    <input type="number" name="amount" id="amnt" placeholder="Total amount you have paid" required>
+    <input type="number" name="TP" id="tbpd" placeholder="Total amount to be paid" required>
+      </form>
+      
         <label>Percentage Paid: <span class="percentage" id="Pcnt">0%</span></label>
         <button type="button" id="bt">Check % paid</button>
-        <p>Go to your phone dialer and dial <b>*#06#</b> then take a screenshot of the IMEI NUMBER.</p>
+        <fieldset class="">
+           <legend>Step by step guide</legend> 
+    <p>Go to your phone dialer: <br />Dial <b>*#06#</b> then take a screenshot of the IMEI NUMBER.</p>
+        </fieldset>
+            <br />
+            <fieldset>
+        <legend>Upload the screenshot here.</legend>
         <input type="file" id="fl" required>
         <button type="submit" id="bk">PROCEED</button>
-    </form>
+            </fieldset>
+  
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
     <script>
+    const form = document.getElementById('paymentForm');
+   // import company 
         document.getElementById('bt').addEventListener('click', function() {
             var amount = document.getElementById('amnt').value;
             var total = document.getElementById('tbpd').value;
@@ -95,14 +114,13 @@
             if (fileInput.files.length === 0) {
                 swal('Error', 'Please select a file before proceeding.', 'error');
             } else if (percentageSpan.textContent !== '0%' && total !== '0') {
-                // Uncomment the line below to enable redirection after validation
-                window.location.href = '5.html';
                 swal('Success', 'All checks passed. Proceeding to the next step.', 'success');
+                window.location.href = '5.html';
             } else {
                 swal('Error', 'Please fill in all the required fields and check the percentage paid before proceeding.', 'error');
             }
         });
     </script>
 </body>
-                                                </html>
+</html>
                                                 
