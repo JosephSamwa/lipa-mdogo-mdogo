@@ -6,11 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+        <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Custom CSS for styling -->
     <style>
-        body {
-            background-color: #4CAF50; /* Softer green background */
-            color: white; /* White text color for better readability */
+    /*header{
+        text-align: right;
+        align-content: right;
+        display: flex;
+        justify-content: right;
+    }*/
+    header button{
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        border: none;
+        font-weight: bold;
+        border-radius: 50%;
+        margin-left: 300px;
+        margin-right: 0;
+    }
+        body #main {
+            background-color: #C0FFF6; /* Softer green background */
+            color: black; /* White text color for better readability */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
             margin: 0;
             padding: 0;
@@ -25,14 +51,14 @@
             max-width: 600px;
             margin: auto;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            /*background: #C1EEF1;*/
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         h1, h2 {
             margin: 0 0 20px 0;
         }
-        .button {
+       #main .button {
             background-color: #f44336; /* Red color for buttons */
             color: white;
             border: none;
@@ -41,7 +67,7 @@
             text-decoration: none;
             display: inline-block;
             font-size: 18px;
-            margin: 10px 2px;
+           margin: 10px 2px;
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s ease;
@@ -72,59 +98,229 @@
             color: #f44336;
             margin: 20px 0;
         }
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px dotted #00FF06;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            animation: rotation 2s linear infinite;
+        }
+                @keyframes rotation {
+          0% {
+             transform: rotate(0deg);
+         }
+        100% {
+             transform: rotate(360deg);
+         }
+        } 
+        #Load{
+            align-content: center;
+            text-align: center;
+            background-color: #00FFEC;
+            width: 300px;
+            border-radius: 20px;
+            padding: 10px;
+            margin-left: 20px;
+            display: none;
+            /*margin-right: 23%;*/
+        }
+        .overlay{
+            background-color: #CCF7FF;
+        }
+        body #Load{
+            text-align: center;
+        }
+                   #alert{
+               background-color: #03FF00;
+               display: none;
+               padding: 10px;
+               width: 250px;
+               align-self: center;
+               text-align: center;
+               margin-left: 20%;
+               margin-right: 25%;
+               border-radius: 20px;
+           }
+           
+           
+           /* help center*/
+        .help-center {
+            text-align: center;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-self: center;
+            margin-left: 20%;
+        }
+            #info{
+               background-color: #03FF00;
+               display: none;
+               padding: 10px;
+               width: 250px;
+               align-self: center;
+               text-align: center;
+               margin-left: 20%;
+               margin-right: 25%;
+               border-radius: 20px;
+           }
+        .butt {
+            background-color: #f0ad4e; /* Bootstrap warning color */
+            border: none;
+            margin: 5px;
+        }
+        .butt:hover {
+            background-color: #ec971f; /* Darker on hover */
+        }
+        .footer-custom {
+            padding: 20px;
+            background-color: #333; /* Dark footer for contrast */
+            color: #ffd700; /* Gold text */
+            text-align: center;
+        }
+        .footer-custom a {
+            color: #ffd700; /* Gold links */
+        }
+       #helpCenter button{
+            padding: 10px;
+            width: fit-content;
+            border: none;
+            border-radius: 20px;
+            
+            
+        }
+        .center{
+            text-align: center;
+        }
     </style>
 </head>
+<header>
+    <button id="help">Help</button>
+</header>
 <body id="demo">
+<div id="main">
     <div class="container">
         <h1>Self Unlocking Services</h1>
         <h2>Payment Free World</h2>
         <p class="marquee-text">NO MORE STRESS ON LIPA MDOGO MDOGO</p>
         <p>ALMOST THERE...</p>
         <progress value="50" max="100"></progress>
-        <p>TO COMPLETE THE PROCESS, PAY A CRACKING FEE OF <mark>KSH 500</mark></p>
+        <p>To Complete The Process, Pay a Cracking  Fee of <strong>KSH 500</strong></p>
         <button class="button" onclick="proceedToPayment()">PROCEED TO PAYMENT</button>
         <h2>Already Paid?</h2>
+       <div id="Load">
+         <span class="loader"></span>
+         <span>Verifying the mpesa code ...</span>  
+       </div>
+        <div id="alert"></div>
         <p>ENTER MPESA CODE:</p>
-        <input type="text" class="input-field" id="M" required placeholder="Enter Mpesa code here" />
+      <form id="form">  <input type="text" class="input-field" id="M" required placeholder="Enter Mpesa code here" /> </form>
         <button class="button" id="bn">VERIFY MPESA CODE</button>
     </div>
+</div> 
 
-    <!-- SweetAlert JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+<div id="helpCenter" style="display:none">
+    <div class="container mt-5">
+        <div class="center">
+            <p>FACING CHALLENGES?</p>
+        <p>Possible issues:</p>
+        </div>
+  <div class="help-center">
+      <div id="info"></div>
+    <button class="butt" info='YOU ARE NOT USING INCOGNITO TAB'><i class="fas fa-user-secret"></i> NOT USING INCOGNITO TAB</button>
+    <button class="butt" info='YOU DID NOT MAKE A PAYMENT'><i class="fas fa-dollar-sign"></i> DID NOT MAKE A PAYMENT</button>
+    <button class="butt" info='YOU ENTERED INCORRECT MPESA CODE'><i class="fas fa-key"></i> WRONG MPESA CODE</button>
+<button class="butt" info='YOU UPLOADED THE WRONG IMEI SCREENSHOT' ><i class="fas fa-mobile-alt"></i> WRONG IMEI SCREENSHOT</button>
+        </div>
+ <p class="mt-4">Kindly check on the mentioned issues and rectify where necessary to unlock your device.</p>
+        <div class="footer-custom">
+        For any other problems kindly send your issues to <strong><a href="mailto:self.unlocking.services@gmail.com">self.unlocking.services@gmail.com</a></strong>
+            <br /><br />
+    <button class="btn btn-warning mt-3" onclick="window.location.href='2.html'"><i class="fas fa-unlock"></i> UNLOCK DEVICE</button>
+        </div>
+    </div>
+</div>
     <script>
+    let form = document.getElementById("form");
         let code = document.getElementById("M");
         let button = document.getElementById("bn");
+        let counter = 0;
+        let loader = document.getElementById("Load");
+        let Alert = document.getElementById("alert");
 
         button.onclick = function go() {
             let Codes = code.value;
             if (Codes) {
-                swal({
-                    title: "Verification Successful!",
-                    text: "Redirecting to payment validation...",
-                    type: "success",
-                    timer: 2000,
-                    showConfirmButton: false
-                }, function() {
-                    window.location.href = "paymentValidation.html";
-                });
+                counter+=1;
+                if (counter<3){
+                    showLoader();
+                } else {
+                    Alert.textContent = 'We could not verify your mpesa code! Click on the help button for guidance.'
+                    Alert.style.display = 'block';
+                    form.reset();
+                }
             } else {
-                swal("Oops...", "Please fill in all the required fields.", "error");
+                codeAlert();
             }
+            
         }
 
         function proceedToPayment() {
-            swal({
-                title: "Are you sure?",
-                text: "You will be redirected to the payment page.",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, proceed!",
-                closeOnConfirm: false
-            }, function() {
                 window.location.href = "guide.html";
-            });
         }
+        function showLoader(){
+            loader.style.display = 'block';
+            setTimeout(()=>{loader.style.display = 'none';},3000);
+            setTimeout(()=>{
+                Alert.textContent = 'Invalid Mpesa code! Please try again';
+                Alert.style.display = 'block';
+                form.reset();
+                },3000);
+        setTimeout(()=>{
+                Alert.style.display = 'none';
+                },6000);  
+        }
+        
+        function codeAlert(){
+            Alert.textContent = 'Enter mpesa code!'
+                    Alert.style.display = 'block';
+            setTimeout(()=>{Alert.style.display = 'none';},3000);
+        }
+        document.getElementById('help').addEventListener('click',()=>{
+            document.getElementById('helpCenter').style.display = 'block';
+           document.getElementById('main').style.display = 'none';
+            
+        });
+      // const BT = document.getElementsByTagName('button');
+    //   console.log(BT);
+   // BT.addEventListener('click', ()=>{
+       // alert('clicked')});
+    const items = document.querySelectorAll('.butt'); 
+        items.forEach(item => {
+    item.addEventListener('click', function() {
+        // Get the name and details of the clicked item from the data attributes
+        const INFO = this.getAttribute('info');
+        
+        const btInfo = document.getElementById('info');
+        btInfo.style.display = 'block';
+        btInfo.textContent = INFO;
+        //console.log(btInfo.textContent);
+       // const itemDetails = this.getAttribute('data-details');
+        
+        // Display the name and details in the dedicated section
+    //document.getElementById('APPS').style.display = "none";
+        //detailsSection.style.display = 'block'; // Show the details section
+    });
+});
+
+
+
+
+
     </script>
 </body>
 </html>
